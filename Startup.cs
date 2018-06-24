@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using YSC_Server.DbContext;
 
 namespace YSC_Server
 {
@@ -45,6 +46,8 @@ namespace YSC_Server
                     NamingStrategy = new CamelCaseNamingStrategy()
                 };
             });
+
+            // dotnet ef database updateservices.AddDbContext<YscContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
