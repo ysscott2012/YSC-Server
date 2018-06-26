@@ -10,5 +10,7 @@ namespace YSC_Server.DbContext
         }
 
         public DbSet<YelpReview> YelpReviews { get; set; }
+        public DbSet<Algorithm> Algorithms { get; set; }
+        public DbSet<Leetcode> Leetcodes { get; set; }
     }
 }

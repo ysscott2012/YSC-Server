@@ -10,9 +10,9 @@ namespace YSC_Server.Models
       
         public ResponseBase()
         {
-            this.StatusCode = 200;
-            this.StatusMessage = string.Empty;
-            this.StatusTime = DateTime.Now;
+            StatusCode = 200;
+            StatusMessage = string.Empty;
+            StatusTime = DateTime.Now;
         }
     }
 }

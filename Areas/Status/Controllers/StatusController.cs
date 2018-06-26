@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using YSC_Server.Controllers;
 using YSC_Server.Models;
 
 namespace YSC_Server.API.Controllers

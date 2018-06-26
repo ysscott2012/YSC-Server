@@ -6,5 +6,7 @@ namespace YSC_Server.DbContext
     public interface IYscContext
     {
         DbSet<YelpReview> YelpReviews { get; set; }
+        DbSet<Algorithm> Algorithms { get; set; }
+        DbSet<Leetcode> Leetcodes { get; set; }
     }
 }
