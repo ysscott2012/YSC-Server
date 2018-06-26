@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace YSC_Server.Controllers
+namespace YSC_Server.API.Controllers
 {
     public abstract class BaseController : Controller
     {
