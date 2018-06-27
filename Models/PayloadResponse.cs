@@ -3,5 +3,10 @@
     public class PayloadResponse<T>: ResponseBase
     {
         public T Payload { get; set; }
+
+        public PayloadResponse(T payload)
+        {
+            Payload = payload;
+        }
     }
 }

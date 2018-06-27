@@ -5,12 +5,12 @@ namespace YSC_Server.DbContext
 {   
     public class YscContext: BaseDbContext, IYscContext
     {
-        public YscContext(DbContextOptions options) : base(options)
+        public virtual DbSet<YelpReview> YelpReviews { get; set; }
+        public virtual DbSet<Algorithm> Algorithms { get; set; }
+        public virtual DbSet<Leetcode> Leetcodes { get; set; }
+        
+        public YscContext(DbContextOptions<YscContext> options) : base(options)
         {
         }
-
-        public DbSet<YelpReview> YelpReviews { get; set; }
-        public DbSet<Algorithm> Algorithms { get; set; }
-        public DbSet<Leetcode> Leetcodes { get; set; }
     }
 }

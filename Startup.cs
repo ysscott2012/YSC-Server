@@ -11,14 +11,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using YSC_Server.API.Controllers;
 using YSC_Server.DbContext;
+using YSC_Server.Extension;
 using YSC_Server.Interfaces;
 using YSC_Server.Middleware;
+using YSC_Server.Models;
 using YSC_Server.Services;
 
 namespace YSC_Server
@@ -48,10 +51,13 @@ namespace YSC_Server
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddDbContext<YscContext>(optons => { optons.UseInMemoryDatabase(); });
             
+            var dbConfig = _config.GetSection("YscDatabase").Get<DatabaseConfiguration>();
+            services.AddDbContext<YscContext>(options => options.UseMySql(dbConfig.GetMySqlConnectionString()));
+
             services.AddScoped<IYscContext, YscContext>();
             services.AddScoped<ILeetcodeManagerService, LeetcodeManagerService>();
+            
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc().AddJsonOptions(opt =>

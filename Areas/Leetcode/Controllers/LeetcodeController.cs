@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using YSC_Server.DaoModels;
 using YSC_Server.DbContext;
 using YSC_Server.Interfaces;
+using YSC_Server.Models;
 
 namespace YSC_Server.API.Controllers
 {
@@ -20,14 +21,15 @@ namespace YSC_Server.API.Controllers
         [HttpPost("leetcode")]
         public IActionResult Create([FromBody] Leetcode body)
         {
-            _leetcodeManagerService.Create(body);
-            return Json("Create leetcode");
+            Leetcode leetcode = _leetcodeManagerService.Create(body);
+            return Json(new PayloadResponse<Leetcode>(leetcode));
         }
         
         [HttpGet("leetcode/{id}")]
         public IActionResult Read(int id)
         {
-            return Json("Read leetcode");
+            Leetcode leetcode = _leetcodeManagerService.Read(1);
+            return Json(new PayloadResponse<Leetcode>(leetcode));
         }
         
         [HttpPut("leetcode/{id}")]

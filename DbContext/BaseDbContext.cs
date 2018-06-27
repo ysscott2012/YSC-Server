@@ -21,28 +21,16 @@ namespace YSC_Server.DbContext
 
         private void AddTimestamps()
         {
-            var entityEntries = this.ChangeTracker.Entries().Where<EntityEntry>((Func<EntityEntry, bool>) (x =>
+            var entities = ChangeTracker.Entries().Where(x => x.Entity is EntityBase && (x.State == EntityState.Added || x.State == EntityState.Modified));
+
+            foreach (var entity in entities)
             {
-                if (!(x.Entity is EntityBase))
+                if (entity.State == EntityState.Added)
                 {
-                    return false;
+                    ((EntityBase)entity.Entity).CrationTime = DateTime.UtcNow;
                 }
 
-                if (x.State != EntityState.Added)
-                {
-                    return x.State == EntityState.Modified;
-                }
-
-                return true;
-            }));
-            
-            foreach (var entityEntry in entityEntries)
-            {
-                if (entityEntry.State == EntityState.Added)
-                {
-                    ((EntityBase)entityEntry.Entity).CrationTime = DateTime.Now;
-                }   
-                ((EntityBase)entityEntry.Entity).LastUpdatedTime = DateTime.Now;
+                ((EntityBase)entity.Entity).LastUpdatedTime = DateTime.UtcNow;
             }
         }
     }

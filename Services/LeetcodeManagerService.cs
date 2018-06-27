@@ -1,4 +1,5 @@
-﻿using YSC_Server.DaoModels;
+﻿using System.Linq;
+using YSC_Server.DaoModels;
 using YSC_Server.DbContext;
 using YSC_Server.Interfaces;
 
@@ -6,21 +7,25 @@ namespace YSC_Server.Services
 {
     public class LeetcodeManagerService: ILeetcodeManagerService
     {
-        private readonly IYscContext _YscContext;
+        private readonly IYscContext _yscContext;
 
         public LeetcodeManagerService(IYscContext yscContext)
         {
-            _YscContext = yscContext;
+            _yscContext = yscContext;
         }
 
         public Leetcode Create(Leetcode body)
         {
-            throw new System.NotImplementedException();
+            //_yscContext.Leetcodes.Add(body);
+            _yscContext.Leetcodes.Attach(body);
+            _yscContext.SaveChanges();
+            return body;
         }
 
         public Leetcode Read(int id)
         {
-            throw new System.NotImplementedException();
+            var leetcode = _yscContext.Leetcodes.ToList();
+            return leetcode[1];
         }
 
         public Leetcode UpdateAndReplace(int id, Leetcode body)
