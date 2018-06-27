@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace YSCServer.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialSetup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace YSCServer.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Creator = table.Column<int>(nullable: false),
-                    CrationTime = table.Column<DateTime>(nullable: false),
+                    CreationTime = table.Column<DateTime>(nullable: false),
                     LastUpdatedTime = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
@@ -33,13 +33,13 @@ namespace YSCServer.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Creator = table.Column<int>(nullable: false),
-                    CrationTime = table.Column<DateTime>(nullable: false),
+                    CreationTime = table.Column<DateTime>(nullable: false),
                     LastUpdatedTime = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     Number = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Difficultity = table.Column<string>(nullable: true),
+                    Difficultly = table.Column<string>(nullable: true),
                     Note = table.Column<string>(nullable: true),
                     Chapter = table.Column<string>(nullable: true),
                     AlgorithmId = table.Column<int>(nullable: false)
@@ -56,7 +56,7 @@ namespace YSCServer.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Creator = table.Column<int>(nullable: false),
-                    CrationTime = table.Column<DateTime>(nullable: false),
+                    CreationTime = table.Column<DateTime>(nullable: false),
                     LastUpdatedTime = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false),
                     ReviewId = table.Column<string>(nullable: true),

@@ -9,8 +9,8 @@ using YSC_Server.DbContext;
 namespace YSCServer.Migrations
 {
     [DbContext(typeof(YscContext))]
-    [Migration("20180625042755_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20180627052120_InitialSetup")]
+    partial class InitialSetup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace YSCServer.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CrationTime");
+                    b.Property<DateTime>("CreationTime");
 
                     b.Property<int>("Creator");
 
@@ -50,13 +50,13 @@ namespace YSCServer.Migrations
 
                     b.Property<string>("Chapter");
 
-                    b.Property<DateTime>("CrationTime");
+                    b.Property<DateTime>("CreationTime");
 
                     b.Property<int>("Creator");
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("Difficultity");
+                    b.Property<string>("Difficultly");
 
                     b.Property<bool>("IsDeleted");
 
@@ -80,7 +80,7 @@ namespace YSCServer.Migrations
 
                     b.Property<string>("BusinessId");
 
-                    b.Property<DateTime>("CrationTime");
+                    b.Property<DateTime>("CreationTime");
 
                     b.Property<int>("Creator");
 

@@ -27,7 +27,7 @@ namespace YSC_Server.DbContext
             {
                 if (entity.State == EntityState.Added)
                 {
-                    ((EntityBase)entity.Entity).CrationTime = DateTime.UtcNow;
+                    ((EntityBase)entity.Entity).CreationTime = DateTime.UtcNow;
                 }
 
                 ((EntityBase)entity.Entity).LastUpdatedTime = DateTime.UtcNow;

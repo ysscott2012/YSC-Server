@@ -13,7 +13,7 @@
         public string Name { get; set; }
         
         // Leetcode Difficultity
-        public string Difficultity { get; set; }
+        public string Difficultly { get; set; }
         
         // User notes
         public string Note { get; set; }
